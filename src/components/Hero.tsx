@@ -11,9 +11,9 @@ interface HeroProps {
 }
 
 export default function Hero({
-    name = "EZAZ",
+    name = "EZAZ SHAIKH",
     title = "Full Stack Game Designer",
-    tagline = "Designing systems that players feel, not just see.",
+    tagline = "Driven by imagination, and powered by iteration.",
 }: HeroProps) {
     return (
         <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-diagonal">

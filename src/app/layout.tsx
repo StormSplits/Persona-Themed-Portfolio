@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
     title: "Ezaz | Full Stack Game Designer",
@@ -25,6 +26,7 @@ export default function RootLayout({
             <body className="bg-ink text-cream overflow-x-hidden">
                 <Navigation />
                 {children}
+                <Footer />
             </body>
         </html>
     );

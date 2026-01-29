@@ -45,8 +45,15 @@ export default function Button({
     const content = (
         <motion.span
             className={baseStyles}
-            style={{ transform: "skewX(-6deg)" }}
+            initial={{ skewX: -6 }}
+            whileHover={{
+                skewX: 0,
+                x: -4,
+                y: -4,
+                boxShadow: "8px 8px 0px #E73A3A"
+            }}
             whileTap={{ scale: 0.95 }}
+            transition={{ type: "tween", duration: 0.15, ease: "easeOut" }}
         >
             <span style={{ display: "inline-block", transform: "skewX(6deg)" }}>
                 {children}

@@ -70,7 +70,7 @@ export default function Navigation() {
 
                         {/* Logo/Name */}
                         <div className="absolute top-8 left-8">
-                            <span className="font-display text-4xl text-crimson">EZAZ</span>
+                            <span className="font-display text-4xl text-crimson">EZAZ SHAIKH</span>
                         </div>
 
                         {/* Nav Items */}
@@ -105,7 +105,7 @@ export default function Navigation() {
                         {/* Contact CTA */}
                         <div className="absolute bottom-8 left-8 right-8">
                             <a
-                                href="mailto:ezaz@example.com"
+                                href="mailto:ezazxshaikh@gmail.com"
                                 className="btn-persona w-full text-center block"
                             >
                                 <span className="btn-persona-text">Get in Touch</span>

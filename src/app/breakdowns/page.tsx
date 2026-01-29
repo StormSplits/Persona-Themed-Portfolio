@@ -109,9 +109,11 @@ export default function BreakdownsPage() {
                                 </div>
 
                                 {/* Title */}
-                                <h2 className="font-display text-4xl md:text-5xl text-cream mb-4 group-hover:text-crimson transition-colors cursor-pointer">
-                                    {breakdown.title}
-                                </h2>
+                                <a href="#">
+                                    <h2 className="font-display text-4xl md:text-5xl text-cream mb-4 group-hover:text-crimson transition-colors cursor-pointer">
+                                        {breakdown.title}
+                                    </h2>
+                                </a>
 
                                 {/* Excerpt */}
                                 <p className="text-cream/70 text-lg mb-6 max-w-3xl">
@@ -173,12 +175,25 @@ export default function BreakdownsPage() {
                                 I regularly share design thoughts and breakdowns.
                                 Follow along for more insights.
                             </p>
-                            <a
-                                href="#"
+                            <motion.a
+                                href="https://www.linkedin.com/in/ezazxshaikh/"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="inline-block bg-cream text-ink px-8 py-4 font-display text-xl border-4 border-ink hover:bg-ink hover:text-cream transition-colors"
+                                initial={{ skewX: -6 }}
+                                whileHover={{
+                                    skewX: 0,
+                                    x: -4,
+                                    y: -4,
+                                    boxShadow: "8px 8px 0px #E73A3A"
+                                }}
+                                whileTap={{ scale: 0.95 }}
+                                transition={{ type: "tween", duration: 0.15, ease: "easeOut" }}
                             >
-                                FOLLOW ON TWITTER
-                            </a>
+                                <span style={{ display: "inline-block", transform: "skewX(6deg)" }}>
+                                    CONNECT ON LINKEDIN
+                                </span>
+                            </motion.a>
                         </div>
                     </div>
                 </motion.div>

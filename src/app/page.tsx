@@ -11,9 +11,9 @@ export default function HomePage() {
         <>
             {/* Hero Section */}
             <Hero
-                name="EZAZ"
+                name="EZAZ SHAIKH"
                 title="Full Stack Game Designer"
-                tagline="Designing systems that players feel, not just see."
+                tagline="Driven by imagination, and powered by iteration."
             />
 
             {/* About Section */}
@@ -38,13 +38,11 @@ export default function HomePage() {
                             </h2>
                             <div className="w-24 h-1 bg-crimson mb-8" />
                             <p className="text-cream/80 text-lg leading-relaxed mb-6">
-                                I&apos;m a <strong className="text-crimson">Full Stack Game Designer</strong> —
-                                someone who understands the entire pipeline from concept to controller.
-                                I don&apos;t just design mechanics; I craft experiences that resonate.
+                                A <strong className="text-crimson">Full Stack Game Designer </strong>
+                                who gives life to ideas, shaping worlds and systems that invite players to explore, feel, and engage. My work has been recognized as an India GDC Game of the Year nominee for PC/Console and a Tokyo Game Show Selected Indie 80 nominee. Every project reflects care, creativity, and a commitment to making experiences that matter.
                             </p>
-                            <p className="text-cream/80 text-lg leading-relaxed">
-                                My approach is analytical yet creative, systematic yet playful.
-                                I believe great games aren&apos;t made by accident — they&apos;re engineered to feel magical.
+                            <p className="text-cream/80 text-lg leading-relaxed mb-6">
+                                And sometimes, the most meaningful experiences come from the choices no one expects. I mean, just ask that little monster in the underground.
                             </p>
                         </motion.div>
 
@@ -55,8 +53,7 @@ export default function HomePage() {
                                     DESIGN PHILOSOPHY
                                 </span>
                                 <p className="text-cream/90 text-lg">
-                                    &quot;95% of game design is invisible. The 5% that players notice
-                                    should feel like magic — but it&apos;s actually precision.&quot;
+                                    &quot;Deliver what players think they want, and definitely what they don&apos;t yet know they want.&quot;
                                 </p>
                             </SlantedPanel>
 
@@ -66,16 +63,16 @@ export default function HomePage() {
                                 </span>
                                 <ul className="space-y-2 text-ink/80">
                                     <li className="flex items-center gap-2">
-                                        <span className="text-crimson">▸</span> Systems Design & Balance
+                                        <span className="text-crimson">▸</span> Documentation That Developers Love
                                     </li>
                                     <li className="flex items-center gap-2">
                                         <span className="text-crimson">▸</span> UI/UX & Player Psychology
                                     </li>
                                     <li className="flex items-center gap-2">
-                                        <span className="text-crimson">▸</span> Level & Narrative Design
+                                        <span className="text-crimson">▸</span> Rapid Prototyping To Polish
                                     </li>
                                     <li className="flex items-center gap-2">
-                                        <span className="text-crimson">▸</span> Documentation & Communication
+                                        <span className="text-crimson">▸</span> Systems Design & Balance
                                     </li>
                                 </ul>
                             </SlantedPanel>
@@ -107,20 +104,30 @@ export default function HomePage() {
                             className="grid grid-cols-2 md:grid-cols-4 gap-6"
                         >
                             {[
-                                { name: "Unity", category: "Engine" },
-                                { name: "Unreal", category: "Engine" },
+                                { name: "Unity", category: "Game Engine" },
+                                { name: "VS Code", category: "IDE" },
                                 { name: "Figma", category: "Design" },
                                 { name: "Photoshop", category: "Design" },
-                                { name: "Miro", category: "Planning" },
-                                { name: "Notion", category: "Docs" },
+                                { name: "Premiere Pro", category: "Video Editing" },
+                                { name: "DOTween", category: "Animation" },
+                                { name: "Play Console", category: "Publishing" },
+                                { name: "Xcode", category: "Publishing" },
                                 { name: "Git", category: "Version Control" },
-                                { name: "Jira", category: "Management" },
+                                { name: "Spreadsheet", category: "Management" },
+                                { name: "Discord", category: "Communication" },
+                                { name: "Slack", category: "Communication" },
                             ].map((skill) => (
                                 <motion.div
                                     key={skill.name}
-                                    className="group relative p-6 bg-ink border-2 border-cream/20 hover:border-crimson transition-all duration-300"
-                                    style={{ transform: "skewX(-6deg)" }}
-                                    whileHover={{ x: -4, y: -4, boxShadow: "8px 8px 0px #E73A3A" }}
+                                    className="group relative p-6 bg-ink border-2 border-cream/20 hover:border-crimson transition-colors duration-300"
+                                    initial={{ skewX: -6 }}
+                                    whileHover={{
+                                        skewX: 0,
+                                        x: -4,
+                                        y: -4,
+                                        boxShadow: "8px 8px 0px #E73A3A"
+                                    }}
+                                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
                                 >
                                     <div style={{ transform: "skewX(6deg)" }}>
                                         <span className="font-display text-2xl text-cream group-hover:text-crimson transition-colors">
@@ -160,12 +167,11 @@ export default function HomePage() {
                             variants={fadeUp}
                             className="text-cream/80 text-xl mb-12"
                         >
-                            Looking for a designer who thinks in systems?
-                            Let&apos;s create something memorable together.
+                            Insert coin to begin… or just drop me a message.
                         </motion.p>
 
                         <motion.div variants={fadeUp} className="flex flex-wrap justify-center gap-4">
-                            <Button href="mailto:ezaz@example.com" variant="primary" size="lg">
+                            <Button href="mailto:ezazxshaikh@gmail.com" variant="primary" size="lg">
                                 Email Me
                             </Button>
                             <Button href="/resume.pdf" variant="outline" size="lg" download>
@@ -179,13 +185,15 @@ export default function HomePage() {
                             className="flex justify-center gap-8 mt-12"
                         >
                             {[
-                                { name: "LinkedIn", href: "#" },
-                                { name: "Twitter", href: "#" },
-                                { name: "Itch.io", href: "#" },
+                                { name: "LinkedIn", href: "https://www.linkedin.com/in/ezazxshaikh/" },
+                                { name: "Whatsapp", href: "https://api.whatsapp.com/send?phone=918327761371" },
+                                // { name: "Itch.io", href: "#" },
                             ].map((social) => (
                                 <a
                                     key={social.name}
                                     href={social.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="font-display text-xl text-cream/50 hover:text-crimson transition-colors"
                                 >
                                     {social.name}
@@ -195,15 +203,6 @@ export default function HomePage() {
                     </motion.div>
                 </div>
             </section>
-
-            {/* Footer */}
-            <footer className="py-8 border-t-4 border-crimson">
-                <div className="container mx-auto px-8 text-center">
-                    <p className="text-cream/50 font-display tracking-widest">
-                        DESIGNED & BUILT BY EZAZ — 2024
-                    </p>
-                </div>
-            </footer>
         </>
     );
 }
