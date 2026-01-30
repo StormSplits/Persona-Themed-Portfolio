@@ -99,13 +99,13 @@ export default function BreakdownsPage() {
                             variants={fadeUp}
                             className="group relative"
                         >
-                            {/* Number */}
-                            <div className="absolute -left-4 md:-left-16 top-0 font-display text-8xl text-crimson/20">
+                            {/* Number - above card on mobile/tablet, outside on xl+ */}
+                            <div className="font-display text-5xl sm:text-6xl xl:text-8xl text-crimson/30 mb-2 xl:mb-0 xl:absolute xl:-left-20 xl:top-0">
                                 {String(index + 1).padStart(2, "0")}
                             </div>
 
                             {/* Content */}
-                            <div className="relative bg-ink-light border-l-4 border-crimson p-8 md:p-12 ml-8 md:ml-0">
+                            <div className="relative bg-ink-light border-l-4 border-crimson p-6 sm:p-8 md:p-12">
                                 {/* Meta */}
                                 <div className="flex flex-wrap gap-4 mb-4">
                                     <span

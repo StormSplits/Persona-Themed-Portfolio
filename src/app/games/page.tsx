@@ -26,6 +26,7 @@ interface Game {
     description: string;
     tags: string[];
     youtubeId: string | null;
+    storeUrl: string | null;
     tools: string[];
     keyDecisions: KeyDecision[];
     screenshots: Screenshot[];
@@ -44,6 +45,7 @@ const games: Game[] = [
             "Core Trials is a motion-based, pixel-art bullet hell roguelike you play with just your webcam. Move your body to control the core, dodge deadly patterns, strike back at the masters, and survive intense trials. Immerse yourself in high-octane action and unleash the true power of your core!",
         tags: ["Systems Design", "Combat Design", "Level Design", "Marketing", "UI/UX", "Sound Design", "Technical Setup"],
         youtubeId: "N1biXvbHSZM",
+        storeUrl: "https://store.steampowered.com/app/2549160/Core_Trials/",
         tools: ["Unity", "Figma", "VS Code", "DOTween", "Premiere Pro", "Photoshop", "Xcode", "Steamworks"],
         keyDecisions: [
             {
@@ -113,6 +115,7 @@ const games: Game[] = [
             "Motion-controlled puzzle game where players must safeguard a delicate balloon from numerous obstacles using a protector shield.",
         tags: ["Puzzle Design", "UX", "Balance"],
         youtubeId: "4DlSo3C8KzA",
+        storeUrl: "https://play.google.com/store/apps/details?id=io.ohilo.DriftUp",
         tools: ["Unity", "Figma", "UI/UX Toolkit", "VS Code", "DOTween", "Photoshop"],
         keyDecisions: [
             {
@@ -150,6 +153,7 @@ const games: Game[] = [
             "First of its kind motion-based match-3D game that has you swaying and swerving to collect falling items before the timer ends.",
         tags: ["Puzzle Design", "Level Design", "Sound Design", "LiveOps", "Technical Setup", "UI"],
         youtubeId: "35pZw8WeeFE",
+        storeUrl: "https://play.google.com/store/apps/details?id=io.Ohilo.MoveMatch3D",
         tools: ["Unity", "Figma", "UI/UX", "UI Toolkit", "VS Code", "DOTween"],
         keyDecisions: [
             {
@@ -343,6 +347,22 @@ export default function GamesPage() {
                                             {selectedGame.role}
                                         </span>
                                     </div>
+                                    {selectedGame.storeUrl && (
+                                        <a
+                                            href={selectedGame.storeUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="bg-ink px-4 py-2 border-2 border-crimson hover:bg-crimson transition-colors"
+                                            style={{ transform: "skewX(-6deg)" }}
+                                        >
+                                            <span
+                                                className="font-display text-cream"
+                                                style={{ transform: "skewX(6deg)", display: "inline-block" }}
+                                            >
+                                                PLAY GAME
+                                            </span>
+                                        </a>
+                                    )}
                                 </div>
 
                                 {/* Description */}

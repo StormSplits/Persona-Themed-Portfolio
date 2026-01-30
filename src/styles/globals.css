@@ -16,6 +16,7 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   body {
@@ -30,6 +31,7 @@
 
 /* === COMPONENT STYLES === */
 @layer components {
+
   /* Slanted Panel - Core Persona 5 UI Element */
   .slant-panel {
     @apply relative bg-cream text-ink;
@@ -65,13 +67,11 @@
     right: 0;
     height: 20px;
     background: inherit;
-    clip-path: polygon(
-      0% 0%, 5% 50%, 10% 0%, 15% 50%, 20% 0%,
-      25% 50%, 30% 0%, 35% 50%, 40% 0%, 45% 50%,
-      50% 0%, 55% 50%, 60% 0%, 65% 50%, 70% 0%,
-      75% 50%, 80% 0%, 85% 50%, 90% 0%, 95% 50%, 100% 0%,
-      100% 100%, 0% 100%
-    );
+    clip-path: polygon(0% 0%, 5% 50%, 10% 0%, 15% 50%, 20% 0%,
+        25% 50%, 30% 0%, 35% 50%, 40% 0%, 45% 50%,
+        50% 0%, 55% 50%, 60% 0%, 65% 50%, 70% 0%,
+        75% 50%, 80% 0%, 85% 50%, 90% 0%, 95% 50%, 100% 0%,
+        100% 100%, 0% 100%);
   }
 
   /* Persona-style Display Text */
@@ -176,15 +176,14 @@
 
 /* === UTILITY CLASSES === */
 @layer utilities {
+
   /* Diagonal Background Lines */
   .bg-diagonal {
-    background-image: repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 2px,
-      rgba(231, 58, 58, 0.05) 2px,
-      rgba(231, 58, 58, 0.05) 4px
-    );
+    background-image: repeating-linear-gradient(-45deg,
+        transparent,
+        transparent 2px,
+        rgba(231, 58, 58, 0.05) 2px,
+        rgba(231, 58, 58, 0.05) 4px);
   }
 
   /* Aggressive Skew Utilities */
@@ -254,9 +253,12 @@
 
 /* === ANIMATIONS === */
 @keyframes pulse-glow {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 20px rgba(231, 58, 58, 0.5);
   }
+
   50% {
     box-shadow: 0 0 40px rgba(231, 58, 58, 0.8);
   }
@@ -266,6 +268,7 @@
   0% {
     clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
   }
+
   100% {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }

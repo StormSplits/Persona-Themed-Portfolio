@@ -18,15 +18,15 @@ export default function Hero({
     return (
         <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-diagonal">
             {/* Background Decorations */}
-            <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
                 {/* Large diagonal line */}
                 <div
-                    className="absolute top-0 right-0 w-[200%] h-[300px] bg-crimson/10"
+                    className="absolute top-0 right-0 w-full h-[300px] bg-crimson/10"
                     style={{ transform: "rotate(-12deg) translateY(-50%)" }}
                 />
 
-                {/* Vertical accent */}
-                <div className="absolute left-16 top-0 bottom-0 w-1 bg-crimson/50" />
+                {/* Vertical accent - positioned at edge on mobile */}
+                <div className="absolute left-4 sm:left-16 top-0 bottom-0 w-1 bg-crimson/50" />
 
                 {/* Grid pattern */}
                 <div
@@ -43,7 +43,7 @@ export default function Hero({
 
             {/* Content */}
             <motion.div
-                className="relative z-10 container mx-auto px-8"
+                className="relative z-10 container mx-auto pl-8 sm:pl-20 md:pl-24 pr-4 sm:pr-8"
                 variants={staggerContainer}
                 initial="initial"
                 animate="animate"
@@ -51,8 +51,8 @@ export default function Hero({
                 {/* Name - Massive Display */}
                 <motion.div className="overflow-hidden mb-4" variants={fadeUp}>
                     <motion.h1
-                        className="font-display text-[12vw] md:text-[10vw] leading-none text-cream"
-                        style={{ textShadow: "8px 8px 0px #E73A3A" }}
+                        className="font-display text-[14vw] sm:text-[13vw] md:text-[11vw] lg:text-[10vw] leading-none text-cream"
+                        style={{ textShadow: "clamp(4px, 1vw, 8px) clamp(4px, 1vw, 8px) 0px #E73A3A" }}
                     >
                         {name}
                     </motion.h1>
