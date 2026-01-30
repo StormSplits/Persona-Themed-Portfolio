@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { menuVariants, menuItemVariants, staggerContainer } from "@/lib/animations";
 
@@ -14,6 +15,7 @@ const navItems = [
 
 export default function Navigation() {
     const [isOpen, setIsOpen] = useState(false);
+    const pathname = usePathname();
 
     return (
         <>
@@ -80,26 +82,43 @@ export default function Navigation() {
                             animate="animate"
                             className="space-y-6"
                         >
-                            {navItems.map((item, index) => (
-                                <motion.li
-                                    key={item.href}
-                                    variants={menuItemVariants}
-                                    custom={index}
-                                >
-                                    <Link
-                                        href={item.href}
-                                        onClick={() => setIsOpen(false)}
-                                        className="group flex items-center gap-4"
+                            {navItems.map((item, index) => {
+                                const isActive = pathname === item.href;
+                                return (
+                                    <motion.li
+                                        key={item.href}
+                                        variants={menuItemVariants}
+                                        custom={index}
                                     >
-                                        <span className="text-crimson font-display text-xl opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200">
-                                            ▶
-                                        </span>
-                                        <span className="font-display text-5xl text-cream group-hover:text-crimson transition-colors duration-200">
-                                            {item.label}
-                                        </span>
-                                    </Link>
-                                </motion.li>
-                            ))}
+                                        <Link
+                                            href={item.href}
+                                            onClick={() => setIsOpen(false)}
+                                            className="group flex items-center gap-4"
+                                        >
+                                            <span className={`text-crimson font-display text-xl transition-all duration-200 ${isActive
+                                                    ? "opacity-100 translate-x-0"
+                                                    : "opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0"
+                                                }`}>
+                                                ▶
+                                            </span>
+                                            <span className={`font-display text-5xl transition-colors duration-200 relative ${isActive
+                                                    ? "text-crimson"
+                                                    : "text-cream group-hover:text-crimson"
+                                                }`}>
+                                                {item.label}
+                                                {/* Active underline */}
+                                                {isActive && (
+                                                    <motion.span
+                                                        layoutId="activeIndicator"
+                                                        className="absolute -bottom-1 left-0 w-full h-1 bg-crimson"
+                                                        style={{ transform: "skewX(-6deg)" }}
+                                                    />
+                                                )}
+                                            </span>
+                                        </Link>
+                                    </motion.li>
+                                );
+                            })}
                         </motion.ul>
 
                         {/* Contact CTA */}
