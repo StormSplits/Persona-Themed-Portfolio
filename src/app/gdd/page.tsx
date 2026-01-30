@@ -6,43 +6,55 @@ import SlantedPanel from "@/components/SlantedPanel";
 import { staggerContainer, fadeUp } from "@/lib/animations";
 
 // Sample GDD data - Replace with your actual documents
+// To add a new document, copy the template below:
+// {
+//     id: [unique number],
+//     title: "Document Title",
+//     category: "Mechanics" | "Systems" | "UX" | "Story",
+//     description: "Brief description...",
+//     preview: "Preview text for the modal...",
+//     pdfUrl: "/Design Documents/YourDocument.pdf",
+//     pages: [number],
+// },
 const documents = [
     {
         id: 1,
-        title: "Combat System Design",
+        title: "Core Trials Complete Design",
         category: "Mechanics",
         description:
-            "Comprehensive breakdown of a real-time combat system with stamina management, combo chains, and enemy AI patterns.",
-        preview: "This document outlines the core combat loop...",
-        pages: 24,
+            "Complete detailed and structured design document for a bullethell roguelike.",
+        preview: "This document outlines the core combat loop, systems, and progression of Core Trials, a bullet-hell roguelike focused on motion-based gameplay, modular core abilities, and escalating encounters driven by curses, blessings, and boss phases.",
+        pdfUrl: "/Design Documents/Core Trials GDD.pdf",
+        pages: 15,
     },
     {
         id: 2,
-        title: "Economy & Progression",
+        title: "BlockFest MVP Design",
         category: "Systems",
         description:
-            "Balanced economy design for a mid-core mobile game, including currency flows, progression curves, and monetization hooks.",
-        preview: "The dual-currency system ensures...",
-        pages: 18,
+            "A comprehensive MVP oriented design document for a hybrid casual puzzler.",
+        preview: "This document outlines the design and vision for *BlockFest*, a goal-driven block puzzle game that reimagines classic grid-based gameplay with colored block objectives, level-based progression, power-ups, and retention-focused systems for hybrid-casual mobile audiences.",
+        pdfUrl: "/Design Documents/Blockfest GDD.pdf",
+        pages: 17,
     },
-    {
-        id: 3,
-        title: "Tutorial Flow Design",
-        category: "UX",
-        description:
-            "Step-by-step tutorial system using contextual learning and minimal UI interruption.",
-        preview: "New players are introduced to mechanics...",
-        pages: 12,
-    },
-    {
-        id: 4,
-        title: "Narrative Framework",
-        category: "Story",
-        description:
-            "Branching narrative structure with player agency, meaningful choices, and emotional beats.",
-        preview: "The story unfolds across three acts...",
-        pages: 32,
-    },
+    // {
+    //     id: 3,
+    //     title: "Tutorial Flow Design",
+    //     category: "UX",
+    //     description:
+    //         "Step-by-step tutorial system using contextual learning and minimal UI interruption.",
+    //     preview: "New players are introduced to mechanics...",
+    //     pages: 12,
+    // },
+    // {
+    //     id: 4,
+    //     title: "Narrative Framework",
+    //     category: "Story",
+    //     description:
+    //         "Branching narrative structure with player agency, meaningful choices, and emotional beats.",
+    //     preview: "The story unfolds across three acts...",
+    //     pages: 32,
+    // },
 ];
 
 const categories = ["All", "Mechanics", "Systems", "UX", "Story"];
@@ -72,12 +84,11 @@ export default function GDDPage() {
                         DOCUMENTATION
                     </span>
                     <h1 className="font-display text-7xl md:text-9xl text-cream mt-2">
-                        DESIGN DOCS
+                        DESIGN DOCUMENTS
                     </h1>
                     <div className="w-32 h-1 bg-crimson mt-6" />
                     <p className="text-cream/70 text-xl mt-6 max-w-2xl">
-                        Game Design Documents showcasing structured thinking,
-                        systems analysis, and clear communication.
+                        Documentation focused on clarity, intent, and real implementation.
                     </p>
                 </motion.div>
 
@@ -93,8 +104,8 @@ export default function GDDPage() {
                             key={category}
                             onClick={() => setActiveCategory(category)}
                             className={`px-6 py-3 font-display text-lg transition-all duration-200 border-2 ${activeCategory === category
-                                    ? "bg-crimson text-cream border-ink"
-                                    : "bg-transparent text-cream/70 border-cream/30 hover:border-crimson hover:text-crimson"
+                                ? "bg-crimson text-cream border-ink"
+                                : "bg-transparent text-cream/70 border-cream/30 hover:border-crimson hover:text-crimson"
                                 }`}
                             style={{ transform: "skewX(-6deg)" }}
                         >
@@ -210,17 +221,16 @@ export default function GDDPage() {
                                     </p>
                                 </div>
 
-                                {/* Placeholder for PDF embed or full content */}
-                                <div className="mt-8 bg-ink/10 aspect-[3/4] flex items-center justify-center border-2 border-ink/20">
-                                    <div className="text-center">
-                                        <span className="font-display text-4xl text-ink/30 block mb-4">
-                                            PDF EMBED
-                                        </span>
-                                        <span className="text-ink/50">
-                                            Full document would be displayed here
-                                        </span>
+                                {/* PDF Embed */}
+                                {selectedDoc.pdfUrl && (
+                                    <div className="mt-8 border-2 border-ink/20">
+                                        <iframe
+                                            src={selectedDoc.pdfUrl}
+                                            className="w-full h-[70vh] min-h-[500px]"
+                                            title={selectedDoc.title}
+                                        />
                                     </div>
-                                </div>
+                                )}
                             </div>
                         </div>
                     </motion.div>

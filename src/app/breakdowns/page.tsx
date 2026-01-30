@@ -4,49 +4,63 @@ import { motion } from "framer-motion";
 import { staggerContainer, fadeUp } from "@/lib/animations";
 
 // Sample breakdowns data - Replace with your actual content
+// To add a new card, copy the template below and fill in your details:
+// {
+//     id: [unique number],
+//     title: "Your Analysis Title",
+//     game: "Game Name",
+//     type: "Analysis" | "Deep Dive" | "UX Critique",
+//     excerpt: "Brief description of your analysis...",
+//     link: "https://your-link-here.com",
+//     sections: ["Section 1", "Section 2", ...],
+// },
 const breakdowns = [
     {
         id: 1,
-        title: "Hollow Knight's Metroidvania Flow",
-        game: "Hollow Knight",
+        title: "Royal Match’s Secret of Success",
+        game: "Royal Match",
         type: "Analysis",
         excerpt:
-            "Examining how Team Cherry uses ability gating, environmental storytelling, and subtle guidance to create a cohesive exploration experience.",
+            "Breaking down Dream Games’ recipe for nailing retention and monetization without compromising player experience.",
+        link: "https://docs.google.com/document/d/1d3JFQ1EmJ8dtBKDrvkXw6jIxP5gJe1jB5y9tpSNjEEk/edit?usp=sharing",
         sections: [
-            "Map Design Philosophy",
-            "Ability Gates & Progression",
-            "Environmental Storytelling",
-            "Combat Pacing",
+            "Gameplay",
+            "Core Loop",
+            "Difficulty Curve",
+            "Progression",
+            "Core Meta",
+            "LiveOps",
+            "Monetization",
         ],
     },
-    {
-        id: 2,
-        title: "Hades' Roguelike Progression",
-        game: "Hades",
-        type: "Deep Dive",
-        excerpt:
-            "Breaking down Supergiant's masterful blend of narrative advancement with roguelike mechanics and permanent progression.",
-        sections: [
-            "Run Structure",
-            "Meta Progression",
-            "Narrative Integration",
-            "Mirror of Night Analysis",
-        ],
-    },
-    {
-        id: 3,
-        title: "Celeste's Difficulty Curve",
-        game: "Celeste",
-        type: "UX Critique",
-        excerpt:
-            "How Matt Makes Games nailed accessibility without compromising challenge, and what we can learn about difficulty design.",
-        sections: [
-            "Teaching Through Levels",
-            "Assist Mode Philosophy",
-            "Challenge Rooms",
-            "Emotional Pacing",
-        ],
-    },
+    // {
+    //     id: 2,
+    //     title: "Hades' Roguelike Progression",
+    //     game: "Hades",
+    //     type: "Deep Dive",
+    //     excerpt:
+    //         "Breaking down Supergiant's masterful blend of narrative advancement with roguelike mechanics and permanent progression.",
+    //     sections: [
+    //         "Run Structure",
+    //         "Meta Progression",
+    //         "Narrative Integration",
+    //         "Mirror of Night Analysis",
+    //     ],
+    // },
+    // {
+    //     id: 3,
+    //     title: "Celeste's Difficulty Curve",
+    //     game: "Celeste",
+    //     type: "UX Critique",
+    //     excerpt:
+    //         "How Matt Makes Games nailed accessibility without compromising challenge, and what we can learn about difficulty design.",
+    //     sections: [
+    //         "Teaching Through Levels",
+    //         "Assist Mode Philosophy",
+    //         "Challenge Rooms",
+    //         "Emotional Pacing",
+    //     ],
+    // },
 ];
 
 export default function BreakdownsPage() {
@@ -68,8 +82,7 @@ export default function BreakdownsPage() {
                     </h1>
                     <div className="w-32 h-1 bg-crimson mt-6" />
                     <p className="text-cream/70 text-xl mt-6 max-w-2xl">
-                        Deep dives into game design decisions, mechanics analysis,
-                        and UX critiques of notable titles.
+                        Breaking down systems, mechanics, and player experience.
                     </p>
                 </motion.div>
 
@@ -109,11 +122,9 @@ export default function BreakdownsPage() {
                                 </div>
 
                                 {/* Title */}
-                                <a href="#">
-                                    <h2 className="font-display text-4xl md:text-5xl text-cream mb-4 group-hover:text-crimson transition-colors cursor-pointer">
-                                        {breakdown.title}
-                                    </h2>
-                                </a>
+                                <h2 className="font-display text-4xl md:text-5xl text-cream mb-4 group-hover:text-crimson transition-colors">
+                                    {breakdown.title}
+                                </h2>
 
                                 {/* Excerpt */}
                                 <p className="text-cream/70 text-lg mb-6 max-w-3xl">
@@ -139,7 +150,9 @@ export default function BreakdownsPage() {
 
                                 {/* Read Link */}
                                 <motion.a
-                                    href="#"
+                                    href={breakdown.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="inline-flex items-center gap-3 font-display text-xl text-crimson group/link"
                                     whileHover={{ x: 10 }}
                                 >
@@ -169,11 +182,10 @@ export default function BreakdownsPage() {
                     >
                         <div style={{ transform: "skewX(3deg)" }}>
                             <h3 className="font-display text-3xl md:text-4xl text-cream mb-4">
-                                WANT MORE ANALYSIS?
+                                ENJOYED THE DISSECTION?
                             </h3>
                             <p className="text-cream/80 mb-6 max-w-lg mx-auto">
-                                I regularly share design thoughts and breakdowns.
-                                Follow along for more insights.
+                                Follow along for more breakdowns, design thoughts, quiet overthinking, and the occasional hot take.
                             </p>
                             <motion.a
                                 href="https://www.linkedin.com/in/ezazxshaikh/"

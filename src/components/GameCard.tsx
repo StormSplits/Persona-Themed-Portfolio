@@ -9,6 +9,7 @@ interface GameCardProps {
     platform: string;
     role: string;
     image?: string;
+    youtubeId?: string;
     tags?: string[];
     onClick?: () => void;
 }
@@ -18,9 +19,14 @@ export default function GameCard({
     platform,
     role,
     image,
+    youtubeId,
     tags = [],
     onClick,
 }: GameCardProps) {
+    // Use YouTube thumbnail if youtubeId is provided, otherwise use image
+    const coverImage = youtubeId
+        ? `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`
+        : image;
     return (
         <motion.div
             className="game-card cursor-pointer"
@@ -32,12 +38,13 @@ export default function GameCard({
         >
             {/* Image Container */}
             <div className="relative h-48 overflow-hidden bg-ink-lighter">
-                {image ? (
+                {coverImage ? (
                     <Image
-                        src={image}
+                        src={coverImage}
                         alt={title}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        unoptimized={!!youtubeId}
                     />
                 ) : (
                     <div className="w-full h-full flex items-center justify-center">
